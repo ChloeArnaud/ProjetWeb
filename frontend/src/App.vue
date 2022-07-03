@@ -1,20 +1,71 @@
 <template>
   <div id="app">
-    <navBar></navBar>
+    <!--
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <router-link to="/nouveau">Nouveau</router-link>
+    </nav>
+    -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- left side-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->
+            <router-link class="nav-link active" aria-current="page" to="/">Accueil</router-link>
+          </li>
+          <li class="nav-item">
+            <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->
+            <router-link class="nav-link active" aria-current="page" to="/categorie">Shop</router-link>
+          </li>
+          <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          -->
+        </ul>
+      </div>
+      <!-- left side-->
+        <a class="navbar-brand" href="#">
+          <img alt="Vue logo" src="./assets/Logo_de_cafe_minimaliste_creme_verte__1_-removebg-preview.png" width="100">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <!-- right side -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+             <!-- <a class="nav-link active" aria-current="page" href="#">About</a>-->
+              <router-link class="nav-link active" aria-current="page" to="/about">About</router-link>
+            </li>
+            <li class="nav-item">
+              <!--<a class="nav-link active" aria-current="page" href="#">Contact</a>-->
+              <router-link class="nav-link active" aria-current="page" to="/contact">Contact</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+            </li>
+          </ul>
+        </div>
+        <!-- right side -->
+    </nav>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import navBar from './components/navBar.vue'
-
-export default {
-  name: 'App',
-  components: {
-    navBar
-  }
-}
-</script>
 
 <style>
 #app {
@@ -23,6 +74,32 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.navbar-brand{
+  width: 100%;
+}
+
+  .active{
+    color: black;
+  }
+
+@media(min-width: 992px){
+  .navbar-expand-lg .navbar-collapse{
+    width: 100%;
+  }
 }
 </style>
