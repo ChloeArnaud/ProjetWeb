@@ -2,28 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b08b10fe-3333-448b-8160-bd8b76289c69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/LoginComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/TitreCategorie.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesif.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAgenda.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitBureau.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitCahier.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitEcriture.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitPeinture.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/BlocAccueil.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/BlocProduit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/navBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/navBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Accueil.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Administrateur.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Catégorie.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Commande.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Contact.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Paiement.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Produit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitEcriture.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitEcriture.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +65,8 @@
       <workItem from="1656434408554" duration="32281000" />
       <workItem from="1656677612065" duration="3742000" />
       <workItem from="1656681684839" duration="16498000" />
-      <workItem from="1656776539481" duration="5344000" />
+      <workItem from="1656776539481" duration="11461000" />
+      <workItem from="1656915606525" duration="5265000" />
     </task>
     <servers />
   </component>
