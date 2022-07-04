@@ -3,29 +3,22 @@
     <!-- left side-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+
+        <li class="nav-item" style="margin-left: 30px">
           <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->
           <router-link class="nav-link active" aria-current="page" to="/">Accueil</router-link>
         </li>
-        <li class="nav-item">
+
+        <Categorie title="Shop"></Categorie>
+
+        <li class="nav-item" style="margin-left: 30px">
           <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->
           <router-link class="nav-link active" aria-current="page" to="/categorie">Shop</router-link>
         </li>
-        <!--
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Shop
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        -->
+
       </ul>
     </div>
+
     <!-- left side-->
     <a class="navbar-brand" href="#">
       <img alt="Vue logo" src="../assets/Logo_de_cafe_minimaliste_creme_verte__1_-removebg-preview.png" width="100">
@@ -41,6 +34,7 @@
           <!-- <a class="nav-link active" aria-current="page" href="#">About</a>-->
           <router-link class="nav-link active" aria-current="page" to="/about">About</router-link>
         </li>
+
         <li class="nav-item">
           <!--<a class="nav-link active" aria-current="page" href="#">Contact</a>-->
           <router-link class="nav-link active" aria-current="page" to="/contact">Contact</router-link>
@@ -58,8 +52,14 @@
 </template>
 
 <script>
+//import Categorie from '../components/Categorie'
+import Categorie from "@/components/Categorie";
 export default {
-  name: "navBar"
+  name: "navBar",
+  components: {
+    Categorie
+   // Categorie
+  },
 }
 </script>
 

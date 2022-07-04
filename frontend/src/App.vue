@@ -1,19 +1,21 @@
 <template>
   <div id="app">
     <navBar/>
-    <HomeView/>
+    <home-view/>
+    <router-view/>
   </div>
 </template>
 
 <script>
 
 import navBar from '@/components/navBar.vue'
-import HomeView from '@/components/BlocAccueil'
+import HomeView from "@/views/HomeView";
 
 export default {
   name: "App",
   components:{
-    navBar, HomeView
+    HomeView,
+    navBar
   }
 }
 

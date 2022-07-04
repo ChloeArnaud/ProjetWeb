@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <TitreCategorie id="titre"><slot>Adhésifs</slot></TitreCategorie>
   </div>
 </template>

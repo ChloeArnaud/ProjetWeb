@@ -14,11 +14,17 @@
 
 <script>
 
-import BlocCategorie from '@/components/BlocCategorie.vue'
+import ProduitAgenda from "@/components/Dropdown_folder/ProduitAgenda";
+import ProduitCahier from "@/components/Dropdown_folder/ProduitCahier";
+import ProduitBureau from "@/components/Dropdown_folder/ProduitBureau";
+import ProduitAdhesif from "@/components/Dropdown_folder/ProduitAdhesif";
+import ProduitPeinture from "@/components/Dropdown_folder/ProduitPeinture";
+import BlocCategorie from "@/components/BlocCategorie";
 export default {
-  name: "Categorie",
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Shop",
   components:{
-    BlocCategorie
+    BlocCategorie,
   }
 }
 </script>

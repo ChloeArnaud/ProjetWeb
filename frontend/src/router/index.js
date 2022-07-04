@@ -1,78 +1,97 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import App from '../App'
+//import HomeView from '@/components/HomeView.vue'
+import Shop from '@/views/Shop'
+import Accueil from '@/components/BlocAccueil'
+import Contact from '@/components/Contact'
+import About from '@/components/About'
+import Login from '@/components/Login'
+
+import ProduitAdhesifPage from '@/views/ProduitAdhesifPage'
+import ProduitAgendaPage from '@/views/ProduitAgendaPage'
+import ProduitBureauPage from '@/views/ProduitBureauPage'
+import ProduitCahierPage from '@/views/ProduitCahierPage'
+import ProduitPeinturePage from '@/views/ProduitPeinturePage'
+import ProduitEcriturePage from '@/views/ProduitEcriturePage'
+
+
+import ProduitAdhesif from '@/components/Dropdown_folder/ProduitAdhesif'
+import ProduitAgenda from '@/components/Dropdown_folder/ProduitAgenda'
+import ProduitBureau from '@/components/Dropdown_folder/ProduitBureau'
+import ProduitCahier from '@/components/Dropdown_folder/ProduitCahier'
+import ProduitPeinture from '@/components/Dropdown_folder/ProduitPeinture'
+import ProduitEcriture from '@/components/Dropdown_folder/ProduitEcriture'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Accueil',
+    component: Accueil
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
+    component: About
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "produit" */ '../views/AboutView.vue')
-  },
-  {
-    path:'/accueil',
-    name:'accueil',
-    component: () => import(/* webpackChunkName: "accueil" */ '../views/Accueil.vue')
+    //component: () => import(/* webpackChunkName: "produit" */ '../views/AboutView.vue')
   },
   {
     path:'/categorie',
     name:'categorie',
-    component: () => import(/* webpackChunkName: "categorie" */ '../views/Categorie.vue')
+    component: Shop
+    //component: () => import(/* webpackChunkName: "categorie" */ '../views/Shop.vue')
   },
   {
-    path:'/produitEcriture',
-    name:'produitEcriture',
-    component: () => import(/* webpackChunkName: "produitEcriture" */ '../views/ProduitEcriture.vue')
+    path:'/categorie/produitEcriture',
+    name:'ProduitEcriture',
+    //component: ProduitEcriturePage
+    component: () => import(/* webpackChunkName: "produitEcriture" */ '../views/ProduitEcriturePage.vue')
   },
   {
-    path:'/produitAgenda',
-    name:'produitAgenda',
-    component: () => import(/* webpackChunkName: "produitAgenda" */ '../views/ProduitAgenda.vue')
+    path:'/categorie/produitAgenda',
+    name:'ProduitAgenda',
+    component: ProduitAgendaPage
+    //component: () => import(/* webpackChunkName: "produitAgenda" */ '../views/ProduitAgendaPage.vue')
   },
   {
-    path:'/produitCahier',
-    name:'produitCahier',
-    component: () => import(/* webpackChunkName: "produitCahier" */ '../views/ProduitCahier.vue')
+    path:'/categorie/produitCahier',
+    name:'ProduitCahier',
+    component: ProduitCahierPage
+    //component: () => import(/* webpackChunkName: "produitCahier" */ '../views/ProduitCahierPage.vue')
   },
   {
-    path:'/produitBureau',
-    name:'produitBureau',
-    component: () => import(/* webpackChunkName: "produitBureau" */ '../views/ProduitBureau.vue')
+    path:'/categorie/produitBureau',
+    name:'ProduitBureau',
+    component: ProduitBureauPage
+    //component: () => import(/* webpackChunkName: "produitBureau" */ '../views/ProduitBureauPage.vue')
   },
   {
-    path:'/produitAdhesif',
-    name:'produitAdhesif',
-    component: () => import(/* webpackChunkName: "produitAdhesif" */ '../views/ProduitAdhesif.vue')
+    path:'/categorie/produitAdhesif',
+    name:'ProduitAdhesif',
+    component: ProduitAdhesifPage
+    //component: () => import(/* webpackChunkName: "produitAdhesif" */ '../views/ProduitAdhesifPage.vue')
   },
   {
-    path:'/produitPeinture',
-    name:'produitPeinture',
-    component: () => import(/* webpackChunkName: "produitPeinture" */ '../views/ProduitPeinture.vue')
+    path:'/categorie/produitPeinture',
+    name:'ProduitPeinture',
+    component: ProduitPeinturePage
+    //component: () => import(/* webpackChunkName: "produitPeinture" */ '../views/ProduitPeinturePage.vue')
   },
   {
     path:'/contact',
-    name:'contact',
-    component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
-  },
-  {
-    path:'/about',
-    name:'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    name:'Contact',
+    component: Contact
+    //component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
   },
   {
     path:'/login',
     name:'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+    component: Login
+    //component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   }
 
 ]
