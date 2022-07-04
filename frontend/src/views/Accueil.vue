@@ -1,10 +1,15 @@
 <template>
- <h1>Je suis la page Accueil</h1>
+<div>
+  <BlocAccueil/>
+</div>
 </template>
 
 <script>
+import BlocAccueil from "@/components/BlocAccueil";
+
 export default {
-  name: "Accueil"
+  name: "Accueil",
+  components:BlocAccueil
 }
 </script>
 
