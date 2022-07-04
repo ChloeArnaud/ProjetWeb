@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b08b10fe-3333-448b-8160-bd8b76289c69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/LoginComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/TitreCategorie.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesif.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAgenda.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitBureau.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitCahier.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitEcriture.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/ProduitPeinture.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Accueil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Administrateur.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Catégorie.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Commande.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Contact.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Paiement.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Produit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BChTXkXUWk7SeEw39YbvSFvZE7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fergu/Desktop/EFREI/Semestre 6/Programmation web/webshop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b08b10fe-3333-448b-8160-bd8b76289c69" name="Changes" comment="" />
+      <created>1656415982683</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656415982683</updated>
+      <workItem from="1656415984365" duration="308000" />
+      <workItem from="1656417486137" duration="3248000" />
+      <workItem from="1656434408554" duration="32281000" />
+      <workItem from="1656677612065" duration="3742000" />
+      <workItem from="1656681684839" duration="16498000" />
+      <workItem from="1656776539481" duration="5344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
