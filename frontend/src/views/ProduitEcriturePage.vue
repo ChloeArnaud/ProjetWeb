@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <h1>JE SUIS LA PAGE ECRITURE</h1>
     <TitreCategorie id="titre"><slot>Ecriture</slot></TitreCategorie>
 
   </div>

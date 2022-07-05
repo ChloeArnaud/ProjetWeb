@@ -8,8 +8,7 @@
           <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->
           <router-link class="nav-link active" aria-current="page" to="/">Accueil</router-link>
         </li>
-
-        <Categorie title="Shop"></Categorie>
+        <!--<Categorie title="Shop"></Categorie>-->
 
         <li class="nav-item" style="margin-left: 30px">
           <!--<a class="nav-link active" aria-current="page" href="#">Accueil</a>-->

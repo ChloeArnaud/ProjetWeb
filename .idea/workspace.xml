@@ -2,29 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b08b10fe-3333-448b-8160-bd8b76289c69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Categorie.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Contact.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitAdhesif.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitAgenda.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitBureau.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitCahier.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitEcriture.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitPeinture.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Categorie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Categorie.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/navBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/navBar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/About.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Categorie.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Shop.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesif.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesifPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitAgenda.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAgendaPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitBureau.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitBureauPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitCahier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitCahierPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitEcriture.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitEcriturePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitPeinture.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitPeinturePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/AboutView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/AboutView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesifPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitAdhesifPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ProduitEcriturePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ProduitEcriturePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,12 +86,10 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/components/Dropdown_folder/ProduitAdhesif.vue</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/views/ProduitBureauPage.vue</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -42,41 +42,41 @@ const routes = [
   {
     path:'/categorie',
     name:'categorie',
-    component: Shop
-    //component: () => import(/* webpackChunkName: "categorie" */ '../views/Shop.vue')
+    //component: Shop
+    component: () => import(/* webpackChunkName: "categorie" */ '../views/Shop.vue')
   },
   {
-    path:'/categorie/produitEcriture',
+    path:'/produitEcriture',
     name:'ProduitEcriture',
     //component: ProduitEcriturePage
     component: () => import(/* webpackChunkName: "produitEcriture" */ '../views/ProduitEcriturePage.vue')
   },
   {
-    path:'/categorie/produitAgenda',
+    path:'/produitAgenda',
     name:'ProduitAgenda',
-    component: ProduitAgendaPage
-    //component: () => import(/* webpackChunkName: "produitAgenda" */ '../views/ProduitAgendaPage.vue')
+    //component: ProduitAgendaPage
+    component: () => import(/* webpackChunkName: "produitAgenda" */ '../views/ProduitAgendaPage')
   },
   {
-    path:'/categorie/produitCahier',
+    path:'/produitCahier',
     name:'ProduitCahier',
     component: ProduitCahierPage
     //component: () => import(/* webpackChunkName: "produitCahier" */ '../views/ProduitCahierPage.vue')
   },
   {
-    path:'/categorie/produitBureau',
+    path:'/produitBureau',
     name:'ProduitBureau',
     component: ProduitBureauPage
     //component: () => import(/* webpackChunkName: "produitBureau" */ '../views/ProduitBureauPage.vue')
   },
   {
-    path:'/categorie/produitAdhesif',
+    path:'/produitAdhesif',
     name:'ProduitAdhesif',
     component: ProduitAdhesifPage
     //component: () => import(/* webpackChunkName: "produitAdhesif" */ '../views/ProduitAdhesifPage.vue')
   },
   {
-    path:'/categorie/produitPeinture',
+    path:'/produitPeinture',
     name:'ProduitPeinture',
     component: ProduitPeinturePage
     //component: () => import(/* webpackChunkName: "produitPeinture" */ '../views/ProduitPeinturePage.vue')

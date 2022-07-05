@@ -6,22 +6,22 @@
     <transition name="fade" apear>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="isOpen">
       <li>
-        <router-link to="/categorie/produitEcriture">Ecriture</router-link>
+        <router-link to="/produitEcriture">Ecriture</router-link>
       </li>
       <li>
-        <router-link to="/categorie/produitCahier">Cahier</router-link>
+        <router-link to="/produitCahier">Cahier</router-link>
       </li>
       <li>
-        <router-link to="/categorie/produitAgenda">Agenda</router-link>
+        <router-link to="/produitAgenda">Agenda</router-link>
       </li>
       <li>
-        <router-link to="/categorie/produitBureau">Bureau</router-link>
+        <router-link to="/produitBureau">Bureau</router-link>
       </li>
       <li>
-        <router-link to="/categorie/produitAdhesifs">Adhésifs</router-link>
+        <router-link to="/produitAdhesifs">Adhésifs</router-link>
       </li>
       <li>
-        <router-link to="/categorie/produitPeinture">Peinture</router-link>
+        <router-link to="/produitPeinture">Peinture</router-link>
       </li>
     </ul>
     </transition>
