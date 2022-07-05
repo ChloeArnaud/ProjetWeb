@@ -1,71 +1,70 @@
-CREATE TABLE Produit(
-   idProduit VARCHAR(5),
-   NomProduit VARCHAR(50) NOT NULL,
-   unitéStockProduit INT,
-   prixProduit DECIMAL(15,2) NOT NULL,
-   imageProduit img,
-   PRIMARY KEY(idProduit),
-   UNIQUE(NomProduit)
-);
+DROP SCHEMA IF EXISTS projetWeb;
+CREATE SCHEMA projetWeb;
 
 CREATE TABLE Commande(
-   idCommande VARCHAR(5),
+   idCommande INTEGER AUTO_INCREMENT,
    dateCommande DATETIME,
    PRIMARY KEY(idCommande)
 );
 
-CREATE TABLE Catégorie(
-   idCatégorie VARCHAR(50),
-   NomCatégorie VARCHAR(50) NOT NULL,
-   DescriptionCatégorie VARCHAR(50) NOT NULL,
-   imgCatégorie img NOT NULL,
-   idProduit VARCHAR(5) NOT NULL,
-   PRIMARY KEY(idCatégorie),
-   FOREIGN KEY(idProduit) REFERENCES Produit(idProduit)
+CREATE TABLE Categorie(
+   idCategorie INTEGER AUTO_INCREMENT,
+   couleurCategorie VARCHAR(50) NOT NULL,
+   NomCategorie VARCHAR(50) NOT NULL,
+   DescriptionCategorie VARCHAR(50) NOT NULL,
+   imgCategorie VARCHAR(150),
+   PRIMARY KEY(idCategorie)
 );
 
 CREATE TABLE Paiement(
-   idPaiement VARCHAR(5),
+   idPaiement INTEGER AUTO_INCREMENT,
    montantPaiement DECIMAL(15,2) NOT NULL,
-   idCommande VARCHAR(5) NOT NULL,
+   idCommande INTEGER,
    PRIMARY KEY(idPaiement),
    FOREIGN KEY(idCommande) REFERENCES Commande(idCommande)
 );
 
 CREATE TABLE Client(
-   idClient VARCHAR(50),
-   IdentifiantClient VARCHAR(50),
+   idClient INTEGER AUTO_INCREMENT,
    NomClient DATETIME NOT NULL,
-   PrénomClient VARCHAR(50) NOT NULL,
+   PrenomClient VARCHAR(50) NOT NULL,
    DateDeNaissanceClient DATE NOT NULL,
    AdresseClient VARCHAR(50) NOT NULL,
-   MdpClient VARCHAR(8) NOT NULL,
-   idCommande VARCHAR(5) NOT NULL,
-   PRIMARY KEY(idClient, IdentifiantClient),
+   idCommande INTEGER,
+   PRIMARY KEY(idClient),
    UNIQUE(NomClient),
-   UNIQUE(PrénomClient),
+   UNIQUE(PrenomClient),
    FOREIGN KEY(idCommande) REFERENCES Commande(idCommande)
 );
 
 CREATE TABLE Administrateur(
-   idAdmin VARCHAR(50),
-   IdentifiantAdmin VARCHAR(50),
+   idAdmin INTEGER AUTO_INCREMENT,
    NomAdmin VARCHAR(50) NOT NULL,
-   PrénomAdmin VARCHAR(50) NOT NULL,
-   MdpAdmin VARCHAR(8) NOT NULL,
-   idClient VARCHAR(50) NOT NULL,
-   IdentifiantClient VARCHAR(50) NOT NULL,
-   PRIMARY KEY(idAdmin, IdentifiantAdmin),
+   PrenomAdmin VARCHAR(50) NOT NULL,
+   idClient INTEGER,
+   PRIMARY KEY(idAdmin),
    UNIQUE(NomAdmin),
-   UNIQUE(PrénomAdmin),
-   FOREIGN KEY(idClient, IdentifiantClient) REFERENCES Client(idClient, IdentifiantClient)
+   UNIQUE(PrenomAdmin),
+   FOREIGN KEY(idClient) REFERENCES Client(idClient)
+);
+
+CREATE TABLE Produit(
+   idProduit INTEGER AUTO_INCREMENT,
+   NomProduit VARCHAR(50) NOT NULL,
+   uniteStockProduit INT,
+   prixProduit DECIMAL(15,2) NOT NULL,
+   imageProduit VARCHAR(150),
+   idCategorie INTEGER,
+   PRIMARY KEY(idProduit),
+   UNIQUE(NomProduit),
+   FOREIGN KEY(idCategorie) REFERENCES Categorie(idCategorie)
 );
 
 CREATE TABLE Composer(
-   idProduit VARCHAR(5),
-   idCommande VARCHAR(5),
+   idProduit INTEGER AUTO_INCREMENT,
+   idCommande INTEGER,
    Prix DECIMAL(15,2) NOT NULL,
-   Quantité DECIMAL(15,2),
+   Quantite DECIMAL(15,2),
    Total_HT DECIMAL(15,2),
    TVA INT,
    Total_TTC DECIMAL(15,2),
@@ -73,4 +72,3 @@ CREATE TABLE Composer(
    FOREIGN KEY(idProduit) REFERENCES Produit(idProduit),
    FOREIGN KEY(idCommande) REFERENCES Commande(idCommande)
 );
-
