@@ -61,9 +61,9 @@ var dataCatg = [
     ['#E17F58', 'Adhésifs', 'Description de la catégorie adhésif', ''],
     ['#EDAD9E', 'Peinture', 'Description de la catégorie peinture', '']
 ];
-for (let i = 0; i < dataCatg.length; i++) {
-    console.log(InsertCategorie(dataCatg[i]))
-}
+// for (let i = 0; i < dataCatg.length; i++) {
+//     console.log(InsertCategorie(dataCatg[i]))
+// }
 
 
 //------ GET ALL CATEGORIES -----//
@@ -71,13 +71,14 @@ let getLesCategories = () => {
 
     // Query to select all rows
     var query = 'SELECT * FROM CATEGORIE;';
-
-    // Executing the query
+    let resquery = []
+        // Executing the query
     connection.query(query, function(err, rows, fields) {
         if (err) throw err;
-        console.log(rows);
-        return rows;
+        resquery = Object.values(JSON.parse(JSON.stringify(rows)));
+        return resquery
     })
+    return resquery;
 };
 // TEST  
 //`console.log(getLesCategories())
@@ -423,13 +424,15 @@ let removeCommandeByID = (id) => {
 
 
 //----------- END CONNEXION --------//
-connection.end();
+// connection.end();
 
-/*
-app.get('/messages', (req, res) => {
-    const messages = ["My very", "First", "Message"];
-    res.send(messages);
+
+app.get('/Categories', (req, res) => {
+    // for (let i = 0; i < dataCatg.length; i++) {
+    //     console.log(InsertCategorie(dataCatg[i]))
+    // }
+    var lesCategories = getLesCategories();
+    res.send(lesCategories);
 });
 
 app.listen(port, () => console.log('app running'));
-*/
