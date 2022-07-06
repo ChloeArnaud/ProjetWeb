@@ -21,6 +21,7 @@ import ProduitBureau from '@/components/Dropdown_folder/ProduitBureau'
 import ProduitCahier from '@/components/Dropdown_folder/ProduitCahier'
 import ProduitPeinture from '@/components/Dropdown_folder/ProduitPeinture'
 import ProduitEcriture from '@/components/Dropdown_folder/ProduitEcriture'
+import Panier from "@/views/Panier";
 
 Vue.use(VueRouter)
 
@@ -92,6 +93,11 @@ const routes = [
     name:'login',
     component: Login
     //component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  },
+  {
+    path:'/panier',
+    name: 'panier',
+    component: Panier
   }
 
 ]

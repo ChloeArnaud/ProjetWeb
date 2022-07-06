@@ -42,7 +42,8 @@
           <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+          <!--a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>-->
+          <router-link class="nav-link active" aria-current="page" to="/panier"><i class="fa fa-shopping-cart"></i></router-link>
         </li>
       </ul>
     </div>
