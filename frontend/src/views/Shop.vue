@@ -1,49 +1,50 @@
 <template>
   <div>
-    <div id="content">
-        <div class="row">
-           <div class="col-3" id="blocEcriture">
-              <BlocCategorie ><slot><router-link class="nav-link active" aria-current="page" to="/produitEcriture">Ecriture</router-link></slot></BlocCategorie>   
-           </div>
-          <div class="col-4" id="blocCahier">
-              <BlocCategorie ><slot><router-link class="nav-link active" aria-current="page" to="/produitCahier">Cahiers, carnets, feuilles</router-link></slot></BlocCategorie>
-          </div>
-          <div class="col-3" id="blocAgenda">
-             <BlocCategorie><slot><router-link class="nav-link active" aria-current="page" to="/produitAgenda">Agenda</router-link></slot></BlocCategorie>
-          </div>
+    <div id="content " >
+      <div class="container">
+      <div class="row row-cols-4">
+        <div class="col"  id="blocEcriture"  v-for="cat in this.lst_cat" v-bind="cat.idCategorie">
+          <BlocCategorie>
+            <router-link class="nav-link active" aria-current="page" to="/produitEcriture">{{cat.NomCategorie}}</router-link>
+          </BlocCategorie>
+       </div>
+      </div>
+      </div>
 
-        </div>
-        <div class="row">
-          <div class="col-3" id="blocBureau">
-            <BlocCategorie><slot><router-link class="nav-link active" aria-current="page" to="/produitBureau">Bureau</router-link></slot></BlocCategorie>
-          </div>
-          <div class="col-4" id="blocAdhesif">
-            <BlocCategorie><slot><router-link class="nav-link active" aria-current="page" to="/produitAdhesif">Adhésifs</router-link></slot></BlocCategorie>
-          </div>
-          <div class="col-3" id="blocPeinture">
-            <BlocCategorie><slot><router-link class="nav-link active" aria-current="page" to="/produitPeinture">Peinture</router-link></slot></BlocCategorie>
-          </div>
-        </div>
     </div>
   </div>
-
 </template>
 
 <script>
 
-import ProduitAgenda from "@/components/Dropdown_folder/ProduitAgenda";
-import ProduitCahier from "@/components/Dropdown_folder/ProduitCahier";
-import ProduitBureau from "@/components/Dropdown_folder/ProduitBureau";
-import ProduitAdhesif from "@/components/Dropdown_folder/ProduitAdhesif";
-import ProduitPeinture from "@/components/Dropdown_folder/ProduitPeinture";
+
 import BlocCategorie from "@/components/BlocCategorie";
+import axios from 'axios'
+
+
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Shop",
+  data: function(){
+    return {
+        lst_cat : [],
+    }
+  },
+  beforeMount() {
+    this.lst_cat.axios
+    axios.get("http://localhost:3000/allcategories")
+        .then(result => {
+              console.log(this.lst_cat);
+              this.lst_cat = result.data;
+        })
+        .catch(error => console.log(error));
+  },
   components:{
     BlocCategorie,
   }
 }
+
 
 </script>
 
