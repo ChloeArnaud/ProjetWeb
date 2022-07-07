@@ -40,8 +40,6 @@ export default {
         .then(result => {
               console.log(this.lst_cat);
               this.lst_cat = result.data;
-              //this.cat = lst_cat[0];
-              //console.log("CAT --> "+cat);
         })
         .catch(error => console.log(error));
   },
