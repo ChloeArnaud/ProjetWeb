@@ -9,7 +9,7 @@
           <th >Nombre de produits</th>
         </tr>
         <tr class="col" v-for="(product,id) in list_products" :key="id">
-          <td ><img v-bind:src="getImgUrl(product.img)" alt="img"></td>
+          <td ><img size="10px,10px" v-bind:src="getImgUrl(product.img)" alt="img" width="50px" height="50px"></td>
           <td >{{ product.name }}</td>
           <td >{{ product.price }}€</td>
           <td >{{ product.stock }}</td>
