@@ -3,7 +3,8 @@ const app = express();
 const port = 3000;
 const router = express.Router()
 const mysql = require('mysql')
-
+const cors = require('cors');
+app.use(cors());
 
 //------------------- MySQL -------------------//
 const connection = mysql.createConnection({
@@ -70,7 +71,7 @@ let getLesCategories = (result) => {
             result(null, err);
             return;
         }
-        console.log("LesCategories: ", res);
+        //console.log("LesCategories: ", res);
         result(null, res);
     });
 };
@@ -661,6 +662,12 @@ app.get('/removecommandebyid', (req, res) => {
     });
 });
 
+// // Add Access Control Allow Origin headers
+// app.use(function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.fetch('http://localhost:8080', { mode: 'no-cors' });
+//     next();
+// });
 
 //---- TEST IF THE APP IS RUNNING ----//
 app.listen(port, () => console.log('app running'));

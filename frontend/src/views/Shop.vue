@@ -3,7 +3,9 @@
     <div id="content " >
       <div class="container">
       <div class="row row-cols-4">
-        <div class="col"  id="blocEcriture"  v-for="cat in this.lst_cat" v-bind="cat.idCategorie">
+        <div class="col" v-for="cat in this.lst_cat" id="blocBureau" v-bind="cat.idCategorie">
+           <!-- v-for="cat in this.lst_cat" -->
+           <!-- {{cat.NomCategorie}} -->
           <BlocCategorie>
             <router-link class="nav-link active" aria-current="page" to="/produitEcriture">{{cat.NomCategorie}}</router-link>
           </BlocCategorie>
@@ -29,14 +31,18 @@ export default {
   data: function(){
     return {
         lst_cat : [],
+        cat : {},
     }
   },
   beforeMount() {
     this.lst_cat.axios
-    axios.get("http://localhost:3000/allcategories")
+    axios.get("http://127.0.0.1:3000/allcategories", function (req,res) {
+       res.header("Access-Control-Allow-Origin", "*");})
         .then(result => {
               console.log(this.lst_cat);
               this.lst_cat = result.data;
+              this.cat = lst_cat[0];
+              console.log("CAT --> "+cat);
         })
         .catch(error => console.log(error));
   },
@@ -62,7 +68,8 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
   filter: drop-shadow(0.1rem 0.1rem 0.1rem #656565);
-  
+  align-items: center;
+  justify-content: center;
   }
 
 
