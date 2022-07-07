@@ -33,8 +33,8 @@ class Stock{
 
     init (){
         // ------ get_BDD
-        this.list_product.push(new Product(1,'a',2,3,"../assets/obj.png",1));
-        this.list_product.push(new Product(2,'e',4,6,"../assets/logo.png",1));
+        this.list_product.push(new Product(1,'a',2,3,"obj",1));
+        this.list_product.push(new Product(2,'e',4,6,"logo",1));
         // this.list_product.push(new Product(1, "Germinal 1" , "description germinal 1",10));
         // this.list_product.push(new Product(2, "Germinal 2" , "description germinal 2",20));
         // this.list_product.push(new Product(3, "Germinal 3" , "description germinal 3",30));

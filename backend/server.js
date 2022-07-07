@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'projetWeb',
-    port: 8889,
+    port: 3306,
 
 })
 

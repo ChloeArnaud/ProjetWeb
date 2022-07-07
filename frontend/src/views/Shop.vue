@@ -71,6 +71,10 @@ export default {
   align-items: center;
   justify-content: center;
   }
+.row-cols-4 {
+  width: 100%;
+  justify-content: center;
+}
 
 
 </style>

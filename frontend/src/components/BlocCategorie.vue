@@ -2,7 +2,7 @@
 <div id="BlocCategorie">
  
     <div id="content">
-      <div class="element"><slot></slot></div>
+      <div class="element" ><slot></slot></div>
    </div>
 </div>
 </template>
@@ -16,7 +16,12 @@ export default {
 <style scoped>
 
   .element{
-    margin: 100px;
+    /*margin: 100px;*/
+    text-align: center;
+    height: 160px;
+    vertical-align: middle;
+    margin-top: 40%;
+
   }
   .nav-link{
      color: white  !important;
@@ -28,6 +33,7 @@ export default {
   }
   #content{
     color: white;
+
     
   }
 
