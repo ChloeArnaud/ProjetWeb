@@ -3,7 +3,7 @@
     <div id="content " >
       <div class="container">
       <div class="row row-cols-4">
-        <div class="col" v-for="cat in this.lst_cat" id="blocBureau" v-bind="cat.idCategorie">
+        <div class="col" v-for="cat in this.lst_cat" id="blocBureau" v-bind:key="cat.idCategorie">
            <!-- v-for="cat in this.lst_cat" -->
            <!-- {{cat.NomCategorie}} -->
           <BlocCategorie>
