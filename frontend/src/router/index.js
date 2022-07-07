@@ -1,26 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-//import HomeView from '@/components/HomeView.vue'
-import Shop from '@/views/Shop'
-import Accueil from '@/components/BlocAccueil'
+
+
 import Contact from '@/components/Contact'
 import About from '@/components/About'
 import Login from '@/components/Login'
 
 import ProduitAdhesifPage from '@/views/ProduitAdhesifPage'
-import ProduitAgendaPage from '@/views/ProduitAgendaPage'
 import ProduitBureauPage from '@/views/ProduitBureauPage'
 import ProduitCahierPage from '@/views/ProduitCahierPage'
 import ProduitPeinturePage from '@/views/ProduitPeinturePage'
-import ProduitEcriturePage from '@/views/ProduitEcriturePage'
 
-
-import ProduitAdhesif from '@/components/Dropdown_folder/ProduitAdhesif'
-import ProduitAgenda from '@/components/Dropdown_folder/ProduitAgenda'
-import ProduitBureau from '@/components/Dropdown_folder/ProduitBureau'
-import ProduitCahier from '@/components/Dropdown_folder/ProduitCahier'
-import ProduitPeinture from '@/components/Dropdown_folder/ProduitPeinture'
-import ProduitEcriture from '@/components/Dropdown_folder/ProduitEcriture'
 import Panier from "@/views/Panier";
 
 Vue.use(VueRouter)
@@ -35,11 +25,8 @@ const routes = [{
     {
         path: '/about',
         name: 'About',
-        component: About
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            //component: () => import(/* webpackChunkName: "produit" */ '../views/AboutView.vue')
+        component: () =>
+            import ( /* webpackChunkName: "produit" */ '../views/AboutView.vue')
     },
     {
         path: '/categorie',

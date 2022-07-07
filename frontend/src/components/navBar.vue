@@ -91,4 +91,8 @@ nav a.router-link-exact-active {
     width: 100%;
   }
 }
+
+.navbar-nav me-auto mb-2 mb-lg-0{
+  text-align: center;
+}
 </style>
