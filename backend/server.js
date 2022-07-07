@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'projetWeb',
-    port: 3307,
+    port: 8889,
 
 })
 
@@ -460,13 +460,20 @@ app.get('/allcategories', (req, res) => {
 });
 
 //getByID
-app.get('/getcategoriebyid', (req, res) => {
-    getCategoriebyID(id, (err, data) => {
+app.get('/getcategoriebyid/:cid', (req, res) => {
+    getCategoriebyID(req.params.cid, (err, data) => {
         if (err)
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving categories."
             });
-        else res.send(data);
+        else {
+            if (data.length == 0) {
+                data = {};
+            } else {
+                data = data[0];
+            }
+            res.send(data);
+        }
     });
 });
 
