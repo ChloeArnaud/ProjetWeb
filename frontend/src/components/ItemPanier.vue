@@ -1,6 +1,5 @@
 <template>
   <div class="ItemPanier">
-    <img src="../assets/obj.png">
     <div class="row">
       <table class="tabItemPanier">
         <tr>
@@ -10,7 +9,7 @@
           <th >Nombre de produits</th>
         </tr>
         <tr class="col" v-for="(product,id) in list_products" :key="id">
-          <td ><img v-bind:src="product.img"></td>
+          <td ><img v-bind:src="getImgUrl(product.img)" alt="img"></td>
           <td >{{ product.name }}</td>
           <td >{{ product.price }}€</td>
           <td >{{ product.stock }}</td>
@@ -46,6 +45,10 @@ export default {
       {
         this.desc_product = {};
         this.desc_product = this.stock.get_prod_by_id(id);
+      },
+      getImgUrl(img) {
+        var images = require.context('../assets/', false, /\.png$/);
+        return images('./' + img + ".png")
       }
     }
 
