@@ -20,8 +20,10 @@ export default {
   }
   .nav-link{
      color: white  !important;
-     font-size: xx-large;
+     font-size: x-large;
      font-weight: bold;
+     align-items: center;
+    justify-content: center;
 
   }
   #content{

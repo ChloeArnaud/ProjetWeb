@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const router = express.Router()
 const mysql = require('mysql')
+const cors = require('cors');
+app.use(cors());
 
 //------------------- MySQL -------------------//
 const connection = mysql.createConnection({
@@ -26,28 +29,21 @@ connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
 //-------------------------------------------------------------------//
 
 //----- INSERT ---- //
-let InsertCategorie = (data) => {
+let InsertCategorie = (data, result) => {
 
     // Query to insert multiple rows
-    var query = 'INSERT INTO CATEGORIE(couleurCategorie, NomCategorie, DescriptionCategorie, imgCategorie) VALUES ?;';
+    let query = 'INSERT INTO CATEGORIE(couleurCategorie, NomCategorie, DescriptionCategorie, imgCategorie) VALUES ?;';
 
-    // Values to be inserted
-    // var values = [
-    //     ['#EDAD9E', 'Ecriture', 'Description de la catégorie écriture', ''],
-    //     ['#A4CBC3', 'Cahier, carnet, feuille', 'Description de la catégorie écriture cahiers, carnets, feuilles', ''],
-    //     ['#E5BB70', 'Agenda', 'Description de la catégorie agenda', ''],
-    //     ['#599391', 'Bureau', 'Description de la catégorie bureau', ''],
-    //     ['#E17F58', 'Adhésifs', 'Description de la catégorie adhésif', ''],
-    //     ['#EDAD9E', 'Peinture', 'Description de la catégorie peinture', '']
-    // ];
-
-    // Executing the query
     connection.query(query, [
         [data]
-    ], function(err, rows) {
-        if (err) throw err;
-        console.log("Row inserted with id = " +
-            rows.insertId);
+    ], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("InsertCategorie: ", res);
+        result(null, res);
     });
 
 };
@@ -61,62 +57,61 @@ var dataCatg = [
     ['#E17F58', 'Adhésifs', 'Description de la catégorie adhésif', ''],
     ['#EDAD9E', 'Peinture', 'Description de la catégorie peinture', '']
 ];
-for (let i = 0; i < dataCatg.length; i++) {
-    console.log(InsertCategorie(dataCatg[i]))
-}
+// for (let i = 0; i < dataCatg.length; i++) {
+//     console.log(InsertCategorie(dataCatg[i]))
+// }
 
 
 //------ GET ALL CATEGORIES -----//
-let getLesCategories = () => {
-
-    // Query to select all rows
-    var query = 'SELECT * FROM CATEGORIE;';
-
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+let getLesCategories = (result) => {
+    let query = "SELECT * FROM CATEGORIE";
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        //console.log("LesCategories: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//`console.log(getLesCategories())
 
 //-------- GET CATEGORIE BY ID------//
 
-let getCategoriebyID = (id) => {
+let getCategoriebyID = (id, result) => {
 
     // Query to select all rows
-    var query = 'SELECT * FROM CATEGORIE WHERE idCategorie = ' + id + ' ;';
+    let query = 'SELECT * FROM CATEGORIE WHERE idCategorie = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("getCategorieByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getCategoriebyID(10))
+
 
 //-------- REMOVE CATEGORIE BY ID------//
 
-let removeCategorieByID = (id) => {
+let removeCategorieByID = (id, result) => {
 
     // Query to select all rows
-    var query = 'DELETE FROM CATEGORIE WHERE idCategorie = ' + id + ' ;';
+    let query = 'DELETE FROM CATEGORIE WHERE idCategorie = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("removeCategorieByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-// for (let i = 5; i < 21; i++) {
-//     console.log(removeCategorieByID(i))
-// }
 
 
 //-------------------------------------------------------------------//
@@ -124,312 +119,555 @@ let removeCategorieByID = (id) => {
 //-------------------------------------------------------------------//
 
 //----- INSERT -----//
-let InsertProduit = (data) => {
+let InsertProduit = (data, result) => {
 
     // Query to insert multiple rows
     var query = 'INSERT INTO PRODUIT (NomProduit, uniteStockProduit, prixProduit, imgProduit, idCategorie) VALUES ?;';
 
-    // Executing the query
     connection.query(query, [
         [data]
-    ], function(err, rows) {
-        if (err) throw err;
-        console.log("Row inserted with id = " +
-            rows.insertId);
+    ], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("InsertProduit: ", res);
+        result(null, res);
     });
 
 };
-// TEST  
-//var dataProd = ['#EDAD9E', 'Ecriture', 'Description de la catégorie écriture', 'path'];
-//console.log(InsertProduit(data))
 
 //----- GET ALL PRODUITS -----//
-let getLesProduits = () => {
+let getLesProduits = (result) => {
     // Query to select all rows
     var query = 'SELECT * FROM PRODUIT;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("LesProduits: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getLesProduits())
+
 
 //-------- GET PRODUIT BY ID------//
 
-let getProduitByID = (id) => {
+let getProduitByID = (id, result) => {
 
     // Query to select all rows
     var query = 'SELECT * FROM PRODUIT WHERE idProduit = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("getProduitByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getProduitByID(10))
+
 
 //-------- REMOVE PRODUIT BY ID------//
 
-let removeProduitByID = (id) => {
+let removeProduitByID = (id, result) => {
 
     // Query to select all rows
     var query = 'DELETE FROM PRODUIT WHERE idProduit = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("removeByID: ", res);
+        result(null, res);
+    });
 };
-// TEST   
-// for (let i = 5; i < 21; i++) {
-//     console.log(removeProduitByID(i))
-// }
+
 
 //-------------------------------------------------------------------//
 //---------------------------- PAIEMENT -----------------------------//
 //-------------------------------------------------------------------//
 
 //----- INSERT -----//
-let InsertPaiement = (data) => {
+let InsertPaiement = (data, result) => {
 
     // Query to insert multiple rows
     var query = 'INSERT INTO PAIEMENT (montantPaiement, idCommande) VALUES ?;';
 
-    // Executing the query
     connection.query(query, [
         [data]
-    ], function(err, rows) {
-        if (err) throw err;
-        console.log("Row inserted with id = " +
-            rows.insertId);
+    ], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("InsertPaiement: ", res);
+        result(null, res);
     });
 
 };
-// TEST INSERT  
-//var dataPaiement = ['#EDAD9E', 'Ecriture', 'Description de la catégorie écriture', 'path'];
-//console.log(InsertPaiement(data))
+
 
 //----- GET ALL PAIEMENTS -----//
-let getLesPaiements = () => {
+let getLesPaiements = (result) => {
     // Query to select all rows
     var query = 'SELECT * FROM PAIEMENT;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("LesPaiements: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getLesPaiements())
 
 //-------- GET PAIEMENT BY ID------//
 
-let getPaiementByID = (id) => {
+let getPaiementByID = (id, result) => {
 
     // Query to select all rows
     var query = 'SELECT * FROM PAIEMENT WHERE idPaiement = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("getPaiementByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getPaiementByID(10))
 
 //-------- REMOVE PAIEMENT BY ID------//
 
-let removePaiementByID = (id) => {
+let removePaiementByID = (id, result) => {
 
     // Query to select all rows
     var query = 'DELETE FROM PAIEMENT WHERE idPaiement = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("removePaiementByID: ", res);
+        result(null, res);
+    });
 };
-// TEST   
-// for (let i = 5; i < 21; i++) {
-//     console.log(removePaiementByID(i))
-// }
 
 //-------------------------------------------------------------------//
 //----------------------------   CLIENT  ----------------------------//
 //-------------------------------------------------------------------//
 
 //----- INSERT CLIENT -----//
-let InsertClient = (data) => {
+let InsertClient = (data, result) => {
 
     // Query to insert multiple rows
     var query = 'INSERT INTO CLIENT (NomClient, prenomClient, DateDeNaissanceClient, AdresseClient, idCommande) VALUES ?;';
 
-    // Executing the query
     connection.query(query, [
         [data]
-    ], function(err, rows) {
-        if (err) throw err;
-        console.log("Row inserted with id = " +
-            rows.insertId);
+    ], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("InsertClient: ", res);
+        result(null, res);
     });
 
 };
-// TEST INSERT  
-//var dataClient = ['#EDAD9E', 'Ecriture', 'Description de la catégorie écriture', 'path'];
-//console.log(InsertClient(data))
 
 //----- GET ALL CLIENT -----//
-let getLesClients = () => {
+let getLesClients = (result) => {
     // Query to select all rows
     var query = 'SELECT * FROM CLIENT;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("LesClients: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getLesClients())
 
 //-------- GET CLIENT BY ID------//
 
-let getClientbyID = (id) => {
+let getClientbyID = (id, result) => {
 
     // Query to select all rows
     var query = 'SELECT * FROM CLIENT WHERE idClient = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("getClientByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getClientbyID(10))
+
 
 //-------- REMOVE CLIENT BY ID------//
 
-let removeClientByID = (id) => {
+let removeClientByID = (id, result) => {
 
     // Query to select all rows
     var query = 'DELETE FROM CLIENT WHERE idClient = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("removeClientByID: ", res);
+        result(null, res);
+    });
 };
-// TEST   
-// for (let i = 5; i < 21; i++) {
-//     console.log(removeClientByID(i))
-// }
 
 //-------------------------------------------------------------------//
 //----------------------------  COMMANDE ----------------------------//
 //-------------------------------------------------------------------//
 
 //----- INSERT COMMANDE-----//
-let InsertCommande = (data) => {
+let InsertCommande = (data, result) => {
 
     // Query to insert multiple rows
     var query = 'INSERT INTO COMMANDE (dateCommande) VALUES ?;';
 
-    // Executing the query
     connection.query(query, [
         [data]
-    ], function(err, rows) {
-        if (err) throw err;
-        console.log("Row inserted with id = " +
-            rows.insertId);
+    ], (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("InsertCommande: ", res);
+        result(null, res);
     });
 
 };
-// TEST INSERT  
-//var dataCommande = ['#EDAD9E', 'Ecriture', 'Description de la catégorie écriture', 'path'];
-//console.log(InsertCommande(data))
 
 //----- GET ALL CLIENT -----//
-let getLesCommandes = () => {
+let getLesCommandes = (result) => {
     // Query to select all rows
     var query = 'SELECT * FROM COMMANDE;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("LesCommandes: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getLesCommandes())
+
 
 //-------- GET COMMANDE BY ID------//
 
-let getCommandebyID = (id) => {
+let getCommandebyID = (id, result) => {
 
     // Query to select all rows
     var query = 'SELECT * FROM COMMANDE WHERE idCommande = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("getCommandeByID: ", res);
+        result(null, res);
+    });
 };
-// TEST  
-//console.log(getCommandebyID(10))
+
 
 //-------- REMOVE COMMANDE BY ID------//
 
-let removeCommandeByID = (id) => {
+let removeCommandeByID = (id, result) => {
 
     // Query to select all rows
     var query = 'DELETE FROM COMMANDE WHERE idCommande = ' + id + ' ;';
 
-    // Executing the query
-    connection.query(query, function(err, rows, fields) {
-        if (err) throw err;
-        console.log(rows);
-        return rows;
-    })
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("removeCommandeByID: ", res);
+        result(null, res);
+    });
 };
-// TEST   
-// for (let i = 5; i < 21; i++) {
-//     console.log(removeCommandeByID(i))
-// }
+
 
 
 
 
 //----------- END CONNEXION --------//
-connection.end();
+// connection.end();
 
-/*
-app.get('/messages', (req, res) => {
-    const messages = ["My very", "First", "Message"];
-    res.send(messages);
+//----------------------------------------------------//
+//----------------- APP GET --------------------------//
+//----------------------------------------------------//
+
+//---------------------- Categories ------------------//
+//insert
+app.post('/insertcategorie', (req, res) => {
+    InsertCategorie(data, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
 });
 
+//getAll
+app.get('/allcategories', (req, res) => {
+    getLesCategories((err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getByID
+app.get('/getcategoriebyid', (req, res) => {
+    getCategoriebyID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//removeByID
+app.get('/removecategoriesbyid', (req, res) => {
+    removeCategorieByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//---------------------- Produits ------------------//
+//insert
+app.get('/insertproduit', (req, res) => {
+    InsertProduit(data, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getAll
+app.get('/allproduits', (req, res) => {
+    getLesProduits((err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getByID
+app.get('/getproduitbyid', (req, res) => {
+    getProduitByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//removeByID
+app.get('/removeproduitsbyid', (req, res) => {
+    removeProduitByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+
+//---------------------- Paiement ------------------//
+//insert
+app.get('/insertpaiement', (req, res) => {
+    InsertProduit(data, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getAll
+app.get('/allpaiements', (req, res) => {
+    getLesPaiements((err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getByID
+app.get('/getpaiementbyid', (req, res) => {
+    getPaiementByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//removeByID
+app.get('/removepaiementbyid', (req, res) => {
+    removePaiementByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//---------------------- Client ------------------//
+//insert
+app.get('/insertclient', (req, res) => {
+    InsertClient(data, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getAll
+app.get('/allclients', (req, res) => {
+    getLesClients((err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getByID
+app.get('/getclientbyid', (req, res) => {
+    getClientbyID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//removeByID
+app.get('/removeclientbyid', (req, res) => {
+    removeClientByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//---------------------- Commande ------------------//
+//insert
+app.get('/insertcommande', (req, res) => {
+    InsertCommande(data, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getAll
+app.get('/allcommandes', (req, res) => {
+    getLesCommandes((err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//getByID
+app.get('/getcommandebyid', (req, res) => {
+    getCommandebyID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+//removeByID
+app.get('/removecommandebyid', (req, res) => {
+    removeCommandeByID(id, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else res.send(data);
+    });
+});
+
+// // Add Access Control Allow Origin headers
+// app.use(function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.fetch('http://localhost:8080', { mode: 'no-cors' });
+//     next();
+// });
+
+//---- TEST IF THE APP IS RUNNING ----//
 app.listen(port, () => console.log('app running'));
-*/

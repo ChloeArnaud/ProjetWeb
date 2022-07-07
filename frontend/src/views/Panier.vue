@@ -1,7 +1,6 @@
 <template>
 <div>
   <BlocPanier/>
-  <h1>Je suis le panier sur Panier.vue dans les views</h1>
 </div>
 </template>
 
