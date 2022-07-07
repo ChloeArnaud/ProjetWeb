@@ -39,7 +39,7 @@
           <router-link class="nav-link active" aria-current="page" to="/contact">Contact</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+          <router-link class="nav-link active" aria-current="page" to="/login"><a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i></a></router-link>
         </li>
         <li class="nav-item">
           <!--a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>-->
