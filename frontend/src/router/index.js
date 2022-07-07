@@ -28,7 +28,9 @@ Vue.use(VueRouter)
 const routes = [{
         path: '/',
         name: 'Accueil',
-        component: Accueil
+        //component: Accueil
+        component: () =>
+            import ( /* webpackChunkName: "categorie" */ '../components/BlocAccueil.vue')
     },
     {
         path: '/about',

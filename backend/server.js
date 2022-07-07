@@ -139,7 +139,7 @@ let InsertProduit = (data, result) => {
 };
 
 //----- GET ALL PRODUITS -----//
-let getLesProduits = (result) => {
+let getLesProduits = (outputData) => {
     // Query to select all rows
     var query = 'SELECT * FROM PRODUIT;';
 
@@ -149,8 +149,10 @@ let getLesProduits = (result) => {
             result(null, err);
             return;
         }
-        console.log("LesProduits: ", res);
-        result(null, res);
+
+        outputData = res;
+        //console.log("LesProduits: ", outputData);
+        return outputData;
     });
 };
 
@@ -158,6 +160,9 @@ let getLesProduits = (result) => {
 //-------- GET PRODUIT BY ID------//
 
 let getProduitByID = (id, result) => {
+
+    let AllProduit = getLesProduits(AllProduit);
+    console.log("LesProduits: ", AllProduit);
 
     // Query to select all rows
     var query = 'SELECT * FROM PRODUIT WHERE idProduit = ' + id + ' ;';
@@ -168,7 +173,25 @@ let getProduitByID = (id, result) => {
             result(null, err);
             return;
         }
-        console.log("getProduitByID: ", res);
+        //console.log("getProduitByID: ", res);
+        result(null, res);
+    });
+};
+
+//-------- GET PRODUIT BY ID CATEGORIE------//
+
+let getProduitByCategorie = (idCategorie, result) => {
+
+    // Query to select all rows
+    var query = 'SELECT * FROM PRODUIT WHERE idCategorie = ' + idCategorie + ' ;';
+
+    connection.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        //console.log("getProduitByCategorie: ", res);
         result(null, res);
     });
 };
@@ -519,6 +542,24 @@ app.get('/getproduitbyid', (req, res) => {
                 message: err.message || "Some error occurred while retrieving categories."
             });
         else res.send(data);
+    });
+});
+
+//getByCategorie
+app.get('/getproduitbycategorie/:cidcategorie', (req, res) => {
+
+    getProduitByCategorie(req.params.cidcategorie, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving categories."
+            });
+        else {
+            if (data.length == 0)
+                data = {};
+            console.log(data);
+            res.send(data);
+
+        }
     });
 });
 

@@ -20,9 +20,10 @@
 
     <!-- left side-->
     <a class="navbar-brand" href="#">
-      <img alt="Vue logo" src="../assets/Logo_de_cafe_minimaliste_creme_verte__1_-removebg-preview.png" width="100">
+      <img alt="Vue logo" src="../assets/Logo_de_cafe_minimaliste_creme_verte__1_-removebg-preview.png" url="localhost:8080/" width="100">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
