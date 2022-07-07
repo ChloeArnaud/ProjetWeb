@@ -9,7 +9,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-img-actions">
-                                <img v-bind:src="getImgUrl(produit.imageProduit)"  width="250px" height="350px" alt="img"> 
+                           <!-- :width="width+'px'" :height="height+'px'" -->
+                                <img v-bind:src="getImgUrl(produit.imageProduit)" :width="width+'px'" :height="height+'px'" alt="img"> 
                     
                         </div>
                     </div>
@@ -17,13 +18,13 @@
                     <div class="card-body bg-light text-center">
                         <div class="mb-2">
                             <h6 class="font-weight-semibold mb-2">
-                                <a href="#" class="text-default mb-2" data-abc="true">{{produit.NomProduit}}</a>
+                                <a href="#" class="text-default mb-2" data-abc="true" style="font-size:x-large">{{produit.NomProduit}}</a>
                             </h6>
 
                             <a href="#" class="text-muted" data-abc="true">Unité en stock : {{produit.uniteStockProduit}}</a>
                         </div>
 
-                        <h3 class="mb-0 font-weight-semibold">Prix : {{produit.prixProduit}}€</h3>
+                        <h3 class="mb-0 font-weight-semibold" style="font-size:x-large">Prix : {{produit.prixProduit}}€</h3>
 
                         <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i>Ajoute au panier</button>
                         
@@ -48,11 +49,14 @@ export default {
   data: function(){
     return {
         cat : {},
+        width : 250,
+        height : 350,
         listProduitsParCategorie : [],
     }
   },
   beforeCreate() {
     let id = this.$route.params.id;
+
     // GET CATEGORIE BY ID
     axios.get("http://127.0.0.1:3000/getcategoriebyid/"+id  ,function (req,res) {
        res.header("Access-Control-Allow-Origin", "*");})
@@ -62,14 +66,24 @@ export default {
         })
         .catch(error => console.log(error));
 
+  
     //GET ALL PRODUITS SELON LEUR CATEGORIE    
     axios.get("http://127.0.0.1:3000/getproduitbycategorie/"+id ,function (req,res) {
        res.header("Access-Control-Allow-Origin", "*");})
         .then(result => {
               this.listProduitsParCategorie = result.data;
+              console.log("ID = "+id);
+              if(id == 1){
+                this.width = 90;
+              }
+              else if (id == 4){
+                this.width = 250;
+                this.height = 300;
+              }
               //console.log("Produit :" + this.listProduitsParCategorie[0]);
         })
         .catch(error => console.log(error));
+ 
   },
   components:{
     TitreCategorie,
