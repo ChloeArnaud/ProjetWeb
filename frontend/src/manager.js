@@ -1,40 +1,40 @@
 // eslint-disable-next-line no-unused-vars
-class Product{
-    constructor(id=0,name="",stock="",price=0, img="",idCat=0) {
-        this.id=id;
-        this.name=name;
-        this.stock=stock;
-        this.price=price;
-        this.img=img;
-        this.idCat=idCat;
+class Product {
+    constructor(id = 0, name = "", stock = "", price = 0, img = "", idCat = 0) {
+        this.id = id;
+        this.name = name;
+        this.stock = stock;
+        this.price = price;
+        this.img = img;
+        this.idCat = idCat;
 
     }
 }
 
 // eslint-disable-next-line no-unused-vars
-class Stock{
+class Stock {
     constructor() {
-        this.list_product=[];
+        this.list_product = [];
         this.init();
     }
 
-    get_list_product(){
+    get_list_product() {
         return this.list_product;
     }
 
-    get_prod_by_id(id){
-        for(var i= 0; i < this.list_product.length; i++){
-            if(this.list_product[i].id==id){
+    get_prod_by_id(id) {
+        for (var i = 0; i < this.list_product.length; i++) {
+            if (this.list_product[i].id == id) {
                 return this.list_product[i];
             }
         }
         return null;
     }
 
-    init (){
+    init() {
         // ------ get_BDD
-        this.list_product.push(new Product(1,'a',2,3,"obj",1));
-        this.list_product.push(new Product(2,'e',4,6,"logo",1));
+        this.list_product.push(new Product(1, 'a', 2, 3, "obj", 1));
+        this.list_product.push(new Product(2, 'e', 4, 6, "logo", 1));
         // this.list_product.push(new Product(1, "Germinal 1" , "description germinal 1",10));
         // this.list_product.push(new Product(2, "Germinal 2" , "description germinal 2",20));
         // this.list_product.push(new Product(3, "Germinal 3" , "description germinal 3",30));
@@ -50,68 +50,66 @@ class Stock{
 }
 
 // eslint-disable-next-line no-unused-vars
-class Cart{
+class Cart {
     constructor() {
         this.list_cart = {};
     }
 
-    get_list_cart(){
+    get_list_cart() {
         return this.list_cart;
     }
 
-    addInCart(id){
-        let elemId=null;
+    addInCart(id) {
+        let elemId = null;
         for (const el in this.list_cart) {
-            if (el == id){
+            if (el == id) {
                 elemId = id;
             }
         }
-        if (elemId !== null){
+        if (elemId !== null) {
             this.addExistedElem(elemId);
-        }
-        else{
+        } else {
             this.addNew(id);
         }
     }
-    removeFromCart (id){
-        let elemId=null;
+    removeFromCart(id) {
+        let elemId = null;
         for (const el in this.list_cart) {
-            if (el == id){
+            if (el == id) {
                 elemId = id;
             }
         }
-        if (elemId !== null){
+        if (elemId !== null) {
             if (this.list_cart[id] == 1) {
                 delete this.list_cart[id];
-            }
-            else{
+            } else {
                 this.subExistedElem(id);
             }
         }
     }
-    addNew(id){
-        this.list_cart[id]=1;
+    addNew(id) {
+        this.list_cart[id] = 1;
     }
 
-    addExistedElem(id){
+    addExistedElem(id) {
         let val = this.list_cart[id];
-        this.list_cart[id]=++val;
+        this.list_cart[id] = ++val;
     }
 
-    subExistedElem(id){
+    subExistedElem(id) {
         let val = this.list_cart[id];
-        this.list_cart[id]=--val;
+        this.list_cart[id] = --val;
     }
 
-    get_nbr_product(){
+    get_nbr_product() {
         let total = 0;
         for (const el in this.list_cart) {
-            total = total + this.list_cart[el] ;
+            total = total + this.list_cart[el];
         }
         return total;
     }
 
-    get_total_price(stk){
+    get_total_price(stk) {
         let total = 0;
         for (const el in this.list_cart) {
             let prd = stk.get_prod_by_id(el);
@@ -122,10 +120,4 @@ class Cart{
 
 }
 
-export {Product, Stock, Cart};
-
-
-
-
-
-
+export { Product, Stock, Cart };

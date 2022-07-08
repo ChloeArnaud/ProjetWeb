@@ -5,8 +5,7 @@
       <h2>Our story</h2>
       <img id="imgAccueil" src="../assets/AccueilImg.jpg" alt="Snow" style="width:400px"> 
         
-        <h5 style="margin-top:20px;" >On est 3 étudiantes qui aiment tout ce qui est papiterie</h5>
-        <h5>On a décidé de faire un site web pour vendre nos produits aesthetique </h5>
+        <h5 style="margin-top:20px;" >Dans le cadre du module « Programmation Web » nous avons décidé de réaliser une papeterie en ligne dans le but de permettre l’achat de matériel comme des cahiers, agenda, stylo et bien plus….</h5>
         
         <h6 style="margin-top:40px;">Chloé ARNAUD</h6>
         <h6>Farah FEURGUENE</h6>

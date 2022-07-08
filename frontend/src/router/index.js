@@ -82,8 +82,8 @@ const routes = [{
     {
         path: '/contact',
         name: 'Contact',
-        component: Contact
-            //component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
+        component: () =>
+            import ( /* webpackChunkName: "contact" */ '../views/Contact.vue')
     },
     {
         path: '/login',

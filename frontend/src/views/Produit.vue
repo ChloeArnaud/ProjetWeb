@@ -24,8 +24,8 @@
                             <a href="#" class="text-muted" data-abc="true">Unité en stock : {{produit.uniteStockProduit}}</a>
                         </div>
 
-                        <h3 class="mb-0 font-weight-semibold" style="font-size:x-large">Prix : {{produit.prixProduit}}€</h3>
-
+                        <h3 class="mb-0 font-weight-semibold" style="font-size:x-large;">Prix : {{produit.prixProduit}}€</h3>
+                        <div style="margin-top:20px;"></div>
                         <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i>Ajoute au panier</button>
                         
                     </div>
@@ -143,7 +143,7 @@ export default {
 }
 
 .bg-cart {
-    background-color:orange;
+     background-color: #E5BB70;
     color:#fff;
 }
 
